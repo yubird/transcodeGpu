@@ -77,12 +77,12 @@ function trans($from, $tmp) {
 		$command .= '-ss 36 -t 100 ';
 	}
 	$command .= '-vsync 1 -cmp chroma -vf '
-		.'scale_npp=w=720:h=480,hwdownload,format=nv12 '
+		.'scale_npp=w=720:h=540,hwdownload,format=nv12 '
 		.'-aspect 16:9 '
 		.'-brand mp42 -acodec copy -threads '.MAX_THREADS.' '
 		.'-movflags faststart '
 		.'-c:v h264_nvenc '
-		.'-rc vbr_hq -b:v 860k -maxrate:v 3740k -b_adapt 1 '
+		.'-rc vbr_hq -b:v 960k -maxrate:v 3740k -b_adapt 1 '
 		.'-spatial_aq 1 -rc-lookahead 600 '
 		.'-preset slow -profile:v high "'.$tmp.'"';
 
